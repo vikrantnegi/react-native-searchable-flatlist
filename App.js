@@ -7,7 +7,6 @@
  */
 
 import React from 'react';
-import { View, Text } from 'react-native';
 import SearchableFlatList from './src/SearchableList';
 
 const App = () => <SearchableFlatList />;
