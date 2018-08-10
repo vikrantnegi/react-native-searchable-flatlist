@@ -1,6 +1,9 @@
 # react-native-searchable-flatlist
 Flatlist with searchable input header
 
+![alt tag](./assets/flatlist.gif)
+
+
 ## Installation
 ### npm modules
 ```npm install```
