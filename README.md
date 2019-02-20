@@ -13,10 +13,14 @@ Read article posted on [Medium](https://medium.freecodecamp.org/how-to-build-a-r
 or
 ```yarn```
 
-### Pods
-```cd ios && pod install```
-
 ## Usage
 ```react-native run-ios```
 or
 ```react-native run-android```
+
+## Troubleshooting
+#### `:CFBundleIdentifier` Error
+* Try clearing the cache with the following command:
+```
+watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/metro* && rm -rf $TMPDIR/haste-*
+```
