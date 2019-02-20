@@ -134,6 +134,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-vector-icons')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

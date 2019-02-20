@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
-import { List, ListItem, SearchBar } from 'react-native-elements';
+import { ListItem, SearchBar } from 'react-native-elements';
 
 class FlatListDemo extends Component {
   constructor(props) {
@@ -52,10 +52,14 @@ class FlatListDemo extends Component {
   };
 
   searchFilterFunction = text => {
-    console.log(this.arrayholder);
+    this.setState({
+      value: text,
+    });
+
     const newData = this.arrayholder.filter(item => {
       const itemData = `${item.name.title.toUpperCase()} ${item.name.first.toUpperCase()} ${item.name.last.toUpperCase()}`;
       const textData = text.toUpperCase();
+
       return itemData.indexOf(textData) > -1;
     });
     this.setState({
@@ -71,6 +75,7 @@ class FlatListDemo extends Component {
         round
         onChangeText={text => this.searchFilterFunction(text)}
         autoCorrect={false}
+        value={this.state.value}
       />
     );
   };
@@ -84,23 +89,21 @@ class FlatListDemo extends Component {
       );
     }
     return (
-      <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
+      <View style={{ flex: 1 }}>
         <FlatList
           data={this.state.data}
           renderItem={({ item }) => (
             <ListItem
-              roundAvatar
+              leftAvatar={{ source: { uri: item.picture.thumbnail } }}
               title={`${item.name.first} ${item.name.last}`}
               subtitle={item.email}
-              avatar={{ uri: item.picture.thumbnail }}
-              containerStyle={{ borderBottomWidth: 0 }}
             />
           )}
           keyExtractor={item => item.email}
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
         />
-      </List>
+      </View>
     );
   }
 }
